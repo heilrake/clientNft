@@ -1,0 +1,151 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+}
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+:focus,
+:active {
+  outline: none;
+}
+a:focus,
+a:active {
+  outline: none;
+}
+aside,
+nav,
+footer,
+header,
+section {
+  display: block;
+}
+html,
+body {
+  height: 100%;
+  
+}
+body {
+  line-height: 1;
+  //font-family: $fontFamily;
+  //text-rendering: optimizeLegibility;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+input,
+button,
+textarea {
+  // font-family: $fontFamily;
+}
+input::-ms-clear {
+  display: none;
+}
+button {
+  cursor: pointer;
+}
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+a,
+a:visited {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+ul li {
+  list-style: none;
+}
+img {
+  vertical-align: top;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit;
+}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;900&family=Raleway:wght@400;500;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Epilogue:regular,500,600,700,800,900&display=swap');
+header,
+body {
+  //@import url('https://fonts.googleapis.com/css?family=Play:regular,700&display=swap&subset=cyrillic-ext');
+  //font-family: 'Poppins', sans-serif;
+  // font-family: 'Raleway', sans-serif;
+  font-family: 'Epilogue', sans-serif;
+  //@import 'fonts';
+  //</Подключаем шрифты>=======================================================================================
+
+  //<Шрифт по умолчанию>==========================================================================================
+  // $fontFamily: 'Raleway';
+  //</Шрифт по умолчанию>==========================================================================================
+  //<ПЕРЕМЕННЫЕ>===========================================================================================================
+  $minWidth: 320px;
+  $maxWidth: 1400;
+  $maxWidthContainer: 1390;
+  $md1: $maxWidthContainer + 12;
+  //</ПЕРЕМЕННЫЕ>===========================================================================================================
+  //<ОСНОВНАЯ СЕТКА>===========================================================================================================
+  ._container {
+    max-width: $maxWidthContainer + px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  //font-family: $fontFamily;
+}
+.wrapper {
+  width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  font-weight: 400;
+}
+.create-button {
+  padding: 11px 33px;
+  background: linear-gradient(135deg, #ff00b8 7.81%, #ff005c 100%);
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  margin: 0 5px;
+  transition: background-color #ff00b8 ease-in-out, border-color #ff00b8 ease-in-out;
+  border: 1px solid transparent;
+  &:active {
+    background-color: darken(#ff005c, 12%);
+    transform: translateY(1px);
+  }
+}
+.connect-button {
+  padding: 11px 33px;
+  background-color: #c4c4c4;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: 0.02em;
+  color: #282828;
+  margin: 0 5px;
+  transition: background-color #c4c4c4 ease-in-out, border-color #c4c4c4 ease-in-out;
+  border: 1px solid transparent;
+  &:active {
+    background-color: darken(#c4c4c4, 12%);
+    transform: translateY(1px);
+  }
+}
+
+//-webkit-overflow-scrolling: touch;
+//animation-play-state: paused !important;

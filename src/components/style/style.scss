@@ -1,0 +1,163 @@
+//<ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
+@import 'null';
+@import'carts';
+//@import 'category';
+@import 'auth';
+//</ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
+//====================================================================================================
+
+//====================================================================================================
+//<Подключаем шрифты>=======================================================================================
+//&display=swap&subset=cyrillic-ext
+//@import url("https://fonts.googleapis.com/css?family=Lato:regular,italic,900&display=swap&subset=cyrillic-ext");
+//@import url("https://fonts.googleapis.com/css?family=Roboto:300,regular,500,700,900&display=swap&subset=cyrillic-ext");
+//</ОСНОВНАЯ СЕТКА>===========================================================================================================
+
+//============================buttons
+.create-button {
+  padding: 11px 33px;
+  background: linear-gradient(135deg, #ff00b8 7.81%, #ff005c 100%);
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  margin-right: 10px;
+
+  transition: background-color #ff00b8 ease-in-out, border-color #ff00b8 ease-in-out;
+  border: 1px solid transparent;
+  &:active {
+    background-color: darken(#ff005c, 12%);
+    transform: translateY(1px);
+  }
+}
+.connect-button {
+  padding: 11px 33px;
+  background-color: #c4c4c4;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: 0.02em;
+  color: #282828;
+  transition: background-color #c4c4c4 ease-in-out, border-color #c4c4c4 ease-in-out;
+  border: 1px solid transparent;
+  &:active {
+    background-color: darken(#c4c4c4, 12%);
+    transform: translateY(1px);
+  }
+}
+//===========================
+.information {
+  &__container {
+  }
+
+  &__mainblock {
+    display: flex;
+  }
+
+  &__aboutit {
+    padding: 150px 0px;
+  }
+
+  &__image {
+  }
+}
+
+.aboutit {
+  display: flex;
+  flex-direction: column;
+  &__title {
+    background: linear-gradient(93.8deg, #ff00ae 1.02%, #ff0066 92.85%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #0b2349;
+    font-family: Poppins;
+    font-weight: bold;
+    font-size: 44px;
+    line-height: 160%;
+    margin-bottom: 30px;
+  }
+
+  &__subtitle {
+    font-family: Poppins;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 26px;
+    font-feature-settings: 'salt' on, 'liga' off;
+    color: #0b2349;
+  }
+  &__moreinfo {
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    span {
+      font-size: 24px;
+      line-height: 47px;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+  }
+  &__buttons {
+    margin-top: 86px;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+  }
+}
+//============================================
+
+.categories {
+  margin-top: 50px;
+  margin-bottom: 750px; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  &__collection {
+    margin-top: 35px;
+  }
+  &__info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  &__menu {
+    display: flex;
+    height: 40px;
+    gap: 5px;
+  }
+
+  &__item {
+    flex: 0 1 25%;
+    height: 40px;
+    border-radius: 10px;
+    background-color: #c4c4c4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #282828;
+    cursor: pointer;
+    transition: background-color 0.1s ease-in-out;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    &:hover {
+      background-color: darken(#f9f9f9, 2%);
+    }
+
+    &:active {
+      background-color: darken(#f9f9f9, 5%);
+    }
+
+    &.active {
+      background-color: #282828;
+      color: #fff;
+    }
+  }
+}
+//=============================================
+
