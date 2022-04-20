@@ -1,7 +1,7 @@
 .header {
   border-bottom: 1px solid #323238;
   margin-bottom: 120px;
-  
+
   //min-height: 100%;
   &__wrapper {
     // что бы шапка прилипла к верху страници при скроле
@@ -12,7 +12,6 @@
     z-index: 50;
   }
   &__container {
-    border: 1px solid black;
   }
 
   &__main {
@@ -27,7 +26,7 @@
     display: flex;
     align-items: center;
     gap: 20px;
-    margin-right: 110px;
+    margin-right: 100px;
   }
 
   &__logoimage {
@@ -47,11 +46,11 @@
   }
 
   &__search {
-    margin-right: 70px;
+    margin-right: 50px;
   }
 
   &__navigation {
-    margin-right: 60px;
+    margin-right: 10px;
   }
 }
 
@@ -74,7 +73,7 @@
   }
 
   &__btn {
-   // background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='33' height='32' viewBox='0 0 33 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3crect x='0.25' width='32' height='32' rx='10' fill='url(%23paint0_linear_0_49)'/%3e%3cdefs%3e%3clinearGradient id='paint0_linear_0_49' x1='2.75' y1='2.5' x2='32.25' y2='32' gradientUnits='userSpaceOnUse'%3e%3cstop stop-color='%23FF00B8'/%3e%3cstop offset='1' stop-color='%23FF005C'/%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e ");
+    // background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='33' height='32' viewBox='0 0 33 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3crect x='0.25' width='32' height='32' rx='10' fill='url(%23paint0_linear_0_49)'/%3e%3cdefs%3e%3clinearGradient id='paint0_linear_0_49' x1='2.75' y1='2.5' x2='32.25' y2='32' gradientUnits='userSpaceOnUse'%3e%3cstop stop-color='%23FF00B8'/%3e%3cstop offset='1' stop-color='%23FF005C'/%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e ");
   }
 
   &__imput {

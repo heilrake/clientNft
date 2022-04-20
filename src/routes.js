@@ -1,9 +1,10 @@
 // возоможние маршрути для авторизированих пользователь и нет
-import { Admin, Auth, BasketPage, CartItemPage, MainPage } from './pages';
+import { Admin, Auth, BasketPage, CartItemPage, CreatePage, MainPage } from './pages';
 import {
   ADMIN_ROUTE,
   BASKET_ROUTE,
   CARTITEM_ROUTE,
+  CREATE_ROUTE,
   LOGIN_ROUTE,
   MAINPAGE_ROUTE,
   REGISTATION_ROUTE,
@@ -14,6 +15,11 @@ export const authRoutes = [
     path: ADMIN_ROUTE,
     Component: Admin,
   },
+  {
+    path: CREATE_ROUTE,
+    Component: CreatePage,
+  },
+
   {
     path: BASKET_ROUTE,
     Component: BasketPage,

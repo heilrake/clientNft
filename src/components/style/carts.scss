@@ -1,5 +1,4 @@
 .carts {
- 
   &__container {
   }
   &__title {
@@ -16,9 +15,9 @@
   }
   &__menu {
     margin-top: 25px;
-    display: flex;
+    display: inline-flex;
+
     flex-wrap: wrap;
-    gap: 20px;
   }
 }
 .menu {
@@ -38,6 +37,7 @@
   }
 
   &__item {
+    margin: 0px 7px;
     cursor: pointer;
     background: white;
     border-radius: 40px;

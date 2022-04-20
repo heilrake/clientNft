@@ -1,0 +1,49 @@
+.create {
+  font-weight: 600;
+  color: white;
+  font-size: 18px;
+  max-width: 500px;
+  margin: 0 auto;
+  &__container {
+  }
+
+  &__type {
+    border-radius: 20px;
+    padding: 12px 20px;
+    text-align: center;
+    background-color: rgb(32, 129, 226);
+    border: 1px solid rgb(32, 129, 226);
+    &:hover {
+      transition: all 0.2s ease 0s;
+      box-shadow: rgb(4 17 29 / 25%) 0px 0px 8px 0px;
+      background-color: rgb(24, 104, 183);
+    }
+  }
+
+  &__brand {
+    margin: 20px 0;
+    border-radius: 20px;
+    padding: 12px 20px;
+    text-align: center;
+    background-color: rgb(32, 129, 226);
+    border: 1px solid rgb(32, 129, 226);
+    &:hover {
+      transition: all 0.2s ease 0s;
+      box-shadow: rgb(4 17 29 / 25%) 0px 0px 8px 0px;
+      background-color: rgb(24, 104, 183);
+    }
+  }
+
+  &__cartitem {
+    border-radius: 20px;
+    padding: 12px 20px;
+    text-align: center;
+    background-color: rgb(32, 129, 226);
+    border: 1px solid rgb(32, 129, 226);
+    &:hover {
+      transition: all 0.2s ease 0s;
+      box-shadow: rgb(4 17 29 / 25%) 0px 0px 8px 0px;
+      background-color: rgb(24, 104, 183);
+    }
+  }
+}

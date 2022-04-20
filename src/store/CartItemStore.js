@@ -18,23 +18,34 @@ export default class CartItemStore {
       {
         id: 1,
         name: 'first ',
+        nameAuthor: 'DonutShop',
         price: 24,
         rating: 5,
-        img: 'https://images.prom.ua/1389777583_dozhdepriemnik-plastikovyj-300h300.jpg',
+        img: 'https://lh3.googleusercontent.com/mtm9mtB4_dOJxjxohO8ArFCXxUepHGFdq4uNMeipt4rHFljjQ2MMeKKLLURjoLqMAc65b14YBVNEitesjAjAWEU8OPsqxtZFCvLP=w286',
       },
       {
         id: 2,
         name: 'second ',
+        nameAuthor: 'kok',
         price: 4,
         rating: 2,
-        img: 'https://images.prom.ua/1389777583_dozhdepriemnik-plastikovyj-300h300.jpg',
+        img: 'https://lh3.googleusercontent.com/qjn3wG6aq1Bu0OVkK4fumytCimJtC9G5d9YPksvET-P5UrEs6jxJk3sAndP4dkHpiNz_lrnRofoQyO1kPYkHOn-L83P1BkteVF7j=w286',
       },
       {
         id: 3,
         name: 'third ',
+        nameAuthor: 'DonutShop',
         price: 2,
         rating: 4,
-        img: 'https://images.prom.ua/1389777583_dozhdepriemnik-plastikovyj-300h300.jpg',
+        img: 'https://lh3.googleusercontent.com/6bhe5vemA9wqEOPHASzE0srk2GI7HxfLDGLguFeYDLOfZB280-yNvAa0nTRFB9WnCowyqPC9cgL8asLXW9sgDM47foEYGdRdTzPj=w286',
+      },
+      {
+        id: 4,
+        name: 'third ',
+        nameAuthor: 'DonutShop',
+        price: 2,
+        rating: 4,
+        img: 'https://lh3.googleusercontent.com/EdwKgBnf2G19nKHOTsNK-0L6crA7d65o6D2gUK7WeEovtCTqZz0Hi3ye94Q4AdN52vYT8jRvMpGiN1sGEUbbhhlU6vYuBW-OQ7yauw=w286',
       },
     ];
     this._selectedType = {};
@@ -50,7 +61,7 @@ export default class CartItemStore {
     this._brands = brands;
   }
   setCartItem(item) {
-    this._item = item;
+    this._cartItem = item;
   }
   setSelectType(type) {
     this._selectedType = type;
@@ -65,7 +76,7 @@ export default class CartItemStore {
     return this._brands;
   }
   get item() {
-    return this._item;
+    return this._cartItem; 
   }
   get selectType() {
     return this._selectedType;

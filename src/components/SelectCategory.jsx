@@ -27,7 +27,7 @@ const SelectCategory = observer(() => {
             {cartItem.types.map((type) => (
               <Link
                 to={SHOPPAGE_ROUTE}
-                active={type.id === cartItem.selectType.id}
+               
                 onClick={() => cartItem.setSelectType(type)}
                 className="menu-selectcategories__body">
                 <img src={top} className="menu-selectcategories__image" alt="" />

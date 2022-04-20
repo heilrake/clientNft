@@ -1,0 +1,28 @@
+.createItem {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: 0.5;
+  pointer-events: none;
+  &._active {
+    opacity: 1;
+    pointer-events: all;
+  }
+  &__container {
+  }
+
+  &__inner {
+    width: 600px;
+    height: 250px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30%;
+  }
+}
+

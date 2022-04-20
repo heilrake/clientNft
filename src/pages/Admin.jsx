@@ -1,13 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Admin extends Component {
-   render() {
-      return (
-         <div>
-            
-         </div>
-      );
-   }
-}
+const Admin = () => {
+  return <div>пороп</div>;
+};
 
 export default Admin;

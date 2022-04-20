@@ -22,6 +22,7 @@ root.render(
       }}>
       <Header />
       <AppRouter />
+      
     </Context.Provider>
   </BrowserRouter>,
 );
