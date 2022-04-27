@@ -4,8 +4,15 @@ import { Context } from '..';
 import './style/header.scss';
 import { observer } from 'mobx-react-lite';
 import { Link } from 'react-router-dom';
-import { ADMIN_ROUTE, LOGIN_ROUTE, MAINPAGE_ROUTE, BASKET_ROUTE, CREATE_ROUTE } from '../untils/consts';
+import {
+  ADMIN_ROUTE,
+  LOGIN_ROUTE,
+  MAINPAGE_ROUTE,
+  BASKET_ROUTE,
+  CREATE_ROUTE,
+} from '../untils/consts';
 import { useNavigate } from 'react-router-dom';
+import CreateButton from './button/CreateButton';
 
 const Header = observer(() => {
   const { user } = useContext(Context);
@@ -72,9 +79,8 @@ const Header = observer(() => {
                 onClick={() => navigate(LOGIN_ROUTE)}>
                 Exit
               </button>
-              <button className="header__create create-button" onClick={() => navigate(CREATE_ROUTE)}>
-                Create
-              </button>
+              <CreateButton  />
+              
             </div>
           ) : (
             <button onClick={() => user.setIsAuth(true)} className="header__connect connect-button">

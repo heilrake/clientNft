@@ -8,8 +8,9 @@ import Header from './components/Header';
 import './components/style/null.scss';
 import './components/style/style.scss';
 import './components/style/category.scss';
-
+import App from './App';
 export const Context = createContext(null);
+console.log(process.env.REACT_APP_API_URL);
 //Контекст позволяет передавать данные через дерево компонентов без
 //необходимости передавать пропсы на промежуточных уровнях.
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -20,9 +21,9 @@ root.render(
         user: new UserStore(),
         cartItem: new CartItemStore(),
       }}>
+      <App />
       <Header />
       <AppRouter />
-      
     </Context.Provider>
   </BrowserRouter>,
 );

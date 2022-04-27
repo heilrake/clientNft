@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
-import CreateICartItem from '../components/modals/CreateICartItem';
+import CreateICartItemcopy from '../components/modals/CreateICartItemcopy';
 import '../components/style/createPage.scss';
 
 const CreatePage = () => {
-  const [modalActive, setModalActive] = useState(true);
+  const [modalActive, setModalActive] = useState(false);
   return (
-    <div class="create">
-      <div class="create__container _container">
-        <div class="create__type">new type</div>
-        <div class="create__brand">new brand</div>
-        <div class="create__cartitem" onClick={() => setModalActive(true)}>
+    <div className="create">
+      <div className="create__container _container">
+        <div className="create__type">new type</div>
+        <div className="create__brand">new brand</div>
+        <div className="create__cartitem" onClick={() => setModalActive(true)}>
           new card
         </div>
       </div>
-      <CreateICartItem active={modalActive} setActive={setModalActive} />
+      <CreateICartItemcopy active={modalActive} setActive={setModalActive} />
     </div>
   );
 };

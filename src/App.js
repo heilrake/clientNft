@@ -1,13 +1,33 @@
-import { Routes, Route } from 'react-router-dom';
-import { CartItemPage } from './pages';
-import { CARTITEM_ROUTE } from './untils/consts';
+import React, { Component, useContext, useEffect, useState } from 'react';
 
-function App() {
+import { observer } from 'mobx-react-lite';
+
+import { check } from './htpp/userAPI';
+import LoaderSpinner from './components/LoaderSpinner';
+import AppRouter from './components/AppRouter';
+import { Context } from '.';
+
+const App = observer(() => {
+  const { user } = useContext(Context);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      check()
+        .then((data) => {
+          user.setIsUser(true); // значит польователь залогинился
+          user.setIsAuth(true);
+        })
+        .finally(() => setLoading(false));
+    }, 1000);
+  }, []);
+  if (loading) {
+    return <LoaderSpinner />;
+  }
   return (
     <div>
-     
+      <AppRouter />
     </div>
   );
-}
+});
 
 export default App;

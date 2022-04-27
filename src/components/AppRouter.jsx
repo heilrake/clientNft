@@ -1,14 +1,18 @@
-import React, { Component, useContext } from 'react';
+import React, { Component, useContext, useEffect, useState } from 'react';
 import { Route, Routes, Redirect } from 'react-router-dom';
 import { Context } from '..';
 import { MainPage } from '../pages';
 import ShopPage from '../pages/ShopPage';
+import { observer } from 'mobx-react-lite';
 
 import { authRoutes, publicRoutes } from '../routes';
 import { SHOPPAGE_ROUTE } from '../untils/consts';
+import { check } from '../htpp/userAPI';
+import LoaderSpinner from './LoaderSpinner';
 
-const AppRouter = () => {
+const AppRouter = observer(() => {
   const { user } = useContext(Context);
+
   console.log(user);
   console.log(Context);
   return (
@@ -24,6 +28,6 @@ const AppRouter = () => {
       <Route path="*" element={<MainPage />} /> {/* если вдруг ничего не отработало*/}
     </Routes>
   );
-};
+});
 
 export default AppRouter;

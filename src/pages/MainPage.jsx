@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SelectCategory from '../components/SelectCategory';
 import Image from '../components/img/main.png';
+import CreateButton from '../components/button/CreateButton';
 
 const MainPage = () => {
   return (
@@ -17,9 +18,7 @@ const MainPage = () => {
                   the project page, including relevant tips per project.
                 </div>
                 <div className="aboutit__buttons">
-                  <a href="#" className="create-button">
-                    Create
-                  </a>
+                  <CreateButton />
                   <a href="#" className="connect-button">
                     Connect
                   </a>
@@ -31,7 +30,7 @@ const MainPage = () => {
             </div>
           </div>
         </section>
-        <SelectCategory/>
+        <SelectCategory />
       </main>
     </div>
   );

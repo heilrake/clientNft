@@ -1,11 +1,37 @@
-import React, { Component } from 'react';
+import React, { Component, useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { LOGIN_ROUTE, REGISTATION_ROUTE } from '../untils/consts';
+import { LOGIN_ROUTE, MAINPAGE_ROUTE, REGISTATION_ROUTE } from '../untils/consts';
 import { useLocation } from 'react-router-dom'; // хук что бы знать где мы находимся
+import { login, registration } from '../htpp/userAPI';
+import { observer } from 'mobx-react-lite';
+import { Context } from '..';
+import { useNavigate } from 'react-router-dom';
 
-const Auth = () => {
+const Auth = observer(() => {
+  const { user } = useContext(Context);
+  const navigate = useNavigate();
   const location = useLocation();
   const isLogin = location.pathname === LOGIN_ROUTE;
+
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+  console.log(setPassword);
+  const click = async () => {
+    try {
+      let data;
+      if (isLogin) {
+        data = await login(email, password);
+      } else {
+        data = await registration(email, password);
+        console.log();
+      }
+      user.setIsUser(user);
+      user.setIsAuth(true);
+      navigate(MAINPAGE_ROUTE);
+    } catch (e) {
+      alert(e.response.data.message);
+    }
+  };
 
   return (
     <section className="login">
@@ -17,13 +43,24 @@ const Auth = () => {
               <label htmlFor="myInput" className="input-group__label">
                 Login:
               </label>
-              <input type="text" id="myInput" className="input-group__input login" />
+              <input
+                type="text"
+                className="input-group__input login"
+                placeholder="Введите ваш email..."
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
             </div>
             <div className="input-group__form">
               <label htmlFor="myInput" className="input-group__label">
                 Password:
               </label>
-              <input type="text" id="myInput" className="input-group__input password" />
+              <input
+                className="input-group__input password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                type="password"
+              />
             </div>
             <div className="input-group__form">
               <label htmlFor="myInput" className="input-group__label">
@@ -50,14 +87,14 @@ const Auth = () => {
                 </div>
               )}
             </div>
-            <a href="#" className="login__button">
+            <button className="login__button" onClick={click}>
               {isLogin ? ' Войти' : ' Регистарция'}
-            </a>
+            </button>
           </div>
         </div>
       </div>
     </section>
   );
-};
+});
 
 export default Auth;
