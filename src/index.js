@@ -14,6 +14,7 @@ console.log(process.env.REACT_APP_API_URL);
 //Контекст позволяет передавать данные через дерево компонентов без
 //необходимости передавать пропсы на промежуточных уровнях.
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
   <BrowserRouter>
     <Context.Provider
@@ -22,8 +23,8 @@ root.render(
         cartItem: new CartItemStore(),
       }}>
       <App />
-      <Header />
-      <AppRouter />
+      {/*  <Header /><AppRouter />*/}
+    
     </Context.Provider>
   </BrowserRouter>,
 );

@@ -1,9 +1,14 @@
-import React, { Component } from 'react';
+import React, { Component, useContext, useEffect } from 'react';
 import SelectCategory from '../components/SelectCategory';
 import Image from '../components/img/main.png';
 import CreateButton from '../components/button/CreateButton';
+import { observer } from 'mobx-react-lite';
+import { Context } from '..';
 
-const MainPage = () => {
+const MainPage = observer(() => {
+  const cartItem = useContext(Context);
+
+
   return (
     <div className="wrapper">
       <main className="page">
@@ -34,6 +39,6 @@ const MainPage = () => {
       </main>
     </div>
   );
-};
+});
 
 export default MainPage;

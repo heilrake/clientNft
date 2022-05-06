@@ -17,7 +17,13 @@ import CreateButton from './button/CreateButton';
 const Header = observer(() => {
   const { user } = useContext(Context);
   const navigate = useNavigate();
-  user.setIsAuth(true);
+
+  const LogOut = () => {
+    user.setIsUser({});
+    user.setIsAuth(false);
+  };
+
+ 
   return (
     <header className="header">
       <div className="header__container _container">
@@ -76,14 +82,13 @@ const Header = observer(() => {
               </button>
               <button
                 className="header__connect connect-button "
-                onClick={() => navigate(LOGIN_ROUTE)}>
+                onClick={() => LogOut()}>
                 Exit
               </button>
-              <CreateButton  />
-              
+              <CreateButton />
             </div>
           ) : (
-            <button onClick={() => user.setIsAuth(true)} className="header__connect connect-button">
+            <button onClick={() => navigate(LOGIN_ROUTE)} className="header__connect connect-button">
               Connect
             </button>
           )}

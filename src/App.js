@@ -6,6 +6,7 @@ import { check } from './htpp/userAPI';
 import LoaderSpinner from './components/LoaderSpinner';
 import AppRouter from './components/AppRouter';
 import { Context } from '.';
+import Header from './components/Header';
 
 const App = observer(() => {
   const { user } = useContext(Context);
@@ -25,6 +26,7 @@ const App = observer(() => {
   }
   return (
     <div>
+      <Header/>
       <AppRouter />
     </div>
   );

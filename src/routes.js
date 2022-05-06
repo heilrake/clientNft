@@ -1,5 +1,5 @@
 // возоможние маршрути для авторизированих пользователь и нет
-import { Admin, Auth, BasketPage, CartItemPage, CreatePage, MainPage } from './pages';
+import { Admin, Auth, BasketPage, CartItemPage, CreatePage, MainPage, ShopPage } from './pages';
 import {
   ADMIN_ROUTE,
   BASKET_ROUTE,
@@ -8,6 +8,7 @@ import {
   LOGIN_ROUTE,
   MAINPAGE_ROUTE,
   REGISTATION_ROUTE,
+  SHOPPAGE_ROUTE,
 } from './untils/consts';
 export const authRoutes = [
   // типо админ панелька
@@ -27,6 +28,10 @@ export const authRoutes = [
   // пользователь которий залогинился может зайти в админ панель и в коризну => дефолт работяга так не может зделать
 ];
 export const publicRoutes = [
+  {
+    path: SHOPPAGE_ROUTE,
+    Component: ShopPage,
+  },
   {
     path: MAINPAGE_ROUTE,
     Component: MainPage,

@@ -1,18 +1,23 @@
-import React, { useContext } from 'react';
-import top from '../components/img/top.jpg';
-import music from '../components/img/music.jpg';
-import sport from '../components/img/sport.jpg';
-import art from '../components/img/art.jpg';
-import untility from '../components/img/untility.jpg';
-import virtualworld from '../components/img/virtualworld.jpg';
+import React, { useContext, useEffect } from 'react';
+
 import { Link } from 'react-router-dom';
 import { SHOPPAGE_ROUTE } from '../untils/consts';
 import { observer } from 'mobx-react-lite';
 import { Context } from '..';
+import { fetchCategory, fetchItems, fetchDevices, fetchCollection } from '../htpp/itemAPI';
 
 const SelectCategory = observer(() => {
   const { cartItem } = useContext(Context);
-  console.log(cartItem.types);
+
+  useEffect(() => {
+    fetchCategory().then((data) => cartItem.setCategories(data));
+    fetchCollection().then((data) => cartItem.setCollections(data));
+    fetchDevices().then((data) => cartItem.setCartItem(data));
+    // fetchItems().then((data) => cartItem.setCartItem(data));
+    //fetchItems().then((data) => cartItem.setCartItem(data));
+  }, []);
+  console.log(cartItem);
+
   return (
     <div className="selectcategories">
       <div className="selectcategories__container _container">
@@ -24,13 +29,18 @@ const SelectCategory = observer(() => {
         </div>
         <div className="selectcategories__collection">
           <ul className="selectcategories__menu menu-selectcategories">
-            {cartItem.types.map((type) => (
+            {cartItem.categories.map((type, index) => (
               <Link
+                key={`${type}_${index}`}
+                category={type.name}
                 to={SHOPPAGE_ROUTE}
-               
-                onClick={() => cartItem.setSelectType(type)}
+                onClick={() => cartItem.setSelectCategory(type)}
                 className="menu-selectcategories__body">
-                <img src={top} className="menu-selectcategories__image" alt="" />
+                <img
+                  src={type.image}
+                  className="menu-selectcategories__image"
+                  alt="image category"
+                />
                 <li className="menu-selectcategories__item">{type.name}</li>
               </Link>
             ))}
