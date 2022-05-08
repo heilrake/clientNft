@@ -1,13 +1,24 @@
-import React, { useState } from 'react';
+import { observer } from 'mobx-react-lite';
+import React, { useState, useEffect, useContext } from 'react';
+import { Context } from '..';
 import CreateCollection from '../components/modals/CreateCollection';
 import CreateICartItemcopy from '../components/modals/CreateICartItemcopy';
 import CreateType from '../components/modals/CreateType';
 import '../components/style/createPage.scss';
+import { fetchCategory, fetchItems, fetchDevices, fetchCollection } from '../htpp/itemAPI';
 
-const CreatePage = () => {
+const CreatePage = observer(() => {
+  const { cartItem } = useContext(Context);
   const [modalActiveСart, setModalActiveCart] = useState(false);
   const [modalActiveType, setModalActiveType] = useState(false);
   const [modalActiveCollection, setModalActiveCollection] = useState(false);
+  useEffect(() => {
+    fetchCategory().then((data) => cartItem.setCategories(data));
+    fetchCollection().then((data) => cartItem.setCollections(data));
+    fetchDevices().then((data) => cartItem.setCartItem(data));
+    // fetchItems().then((data) => cartItem.setCartItem(data));
+    //fetchItems().then((data) => cartItem.setCartItem(data));
+  }, []);
   return (
     <div className="create">
       <div className="create__container _container">
@@ -27,6 +38,6 @@ const CreatePage = () => {
       <CreateType active={modalActiveType} setActive={setModalActiveType} />
     </div>
   );
-};
+});
 
 export default CreatePage;

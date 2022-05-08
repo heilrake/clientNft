@@ -5,7 +5,8 @@ import { fetchOneDevice } from '../htpp/itemAPI';
 
 import { Context } from '..';
 const CartItemPage = () => {
-  //const cartItem = useContext(Context);
+  const cartItem = useContext(Context);
+  console.log(cartItem);
   const [item, setItem] = useState({ info: [] });
   const { id } = useParams();
 

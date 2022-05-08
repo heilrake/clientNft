@@ -1,20 +1,22 @@
 import React, { useContext, useState, useEffect, useRef } from 'react';
 
 import { Context } from '../..';
-
+import { createDevice } from '../../htpp/itemAPI';
 import '../style/createcartitem.scss';
 
 const CreateICartItemcopy = ({ active, setActive }) => {
   const { cartItem } = useContext(Context);
 
   const [name, setName] = useState('');
-  const [price, setPrice] = useState(0);
-  const [image, setImage] = useState(null);
-  const [collection, setCollection] = useState('');
+  const [price, setPrice] = useState();
+  const [image, setImage] = useState('');
+  const [collection, setCollection] = useState('second');
   const [description, setDescription] = useState('');
-  const [category, setCategory] = useState(null);
+  const [category, setCategory] = useState('');
 
-  console.log(cartItem);
+  useEffect(() => {
+    createDevice().then((data) => cartItem.setCartItem(data));
+  }, []);
 
   const sortRef = useRef();
   let multiSelect = false;
@@ -41,10 +43,14 @@ const CreateICartItemcopy = ({ active, setActive }) => {
   };*/
 
   function handleOnClickCategory(item) {
-    console.log(item.id);
+    console.log(cartItem.setSelectCategory(item));
+    console.log(item);
     if (!selectionCategory.some((current) => current === item)) {
+      // console.log(selectionCategory)
+      //cartItem.setSelectionCategory()=selectionCategory;
       if (!multiSelect) {
         setSelectionCategory([item]);
+        //cartItem.setSelectionCategory([item]);
       } else if (multiSelect) {
         setSelectionCategory([...selectionCategory, item]);
       }
@@ -57,15 +63,18 @@ const CreateICartItemcopy = ({ active, setActive }) => {
     // setVisiblePopupCollection(false);
   }
   function handleOnClickCollection(item) {
-    console.log(item.id);
-    if (!selectionCategory.some((current) => current === item)) {
+    //cartItem.setSelectCategory()=item;
+    //item = cartItem.setSelectCategory();
+    // console.log(item)
+    //console.log(item.id);
+    if (!selectionCollection.some((current) => current === item)) {
       if (!multiSelect) {
         setSelectionCollection([item]);
       } else if (multiSelect) {
-        setSelectionCollection([...selectionCategory, item]);
+        setSelectionCollection([...selectionCollection, item]);
       }
     } else {
-      let selectionAfterRemoval = selectionCategory;
+      let selectionAfterRemoval = selectionCollection;
       selectionAfterRemoval = selectionAfterRemoval.filter((current) => current.id !== item.id);
       setSelectionCollection([...selectionAfterRemoval]);
     }
@@ -81,8 +90,34 @@ const CreateICartItemcopy = ({ active, setActive }) => {
     }
     return false;
   };
-
-  console.log(selectionCategory);
+  cartItem.setSelectCollection(selectionCollection);
+  cartItem.setSelectCategory(selectionCategory);
+  /* const addDevice = () => {
+    const formData = new FormData();
+    formData.append('name', name);
+    formData.append('price', `${price}`);
+    formData.append('img', image);
+    formData.append('CollectionId', cartItem.selectedCollection.id);
+    formData.append('CategoryId', cartItem.selectedCategories.id);
+    //formData.append('info', JSON.stringify(info));
+    createDevice(formData).then((data) => setActive(false));
+  };*/
+  const addDevice = () => {
+    createDevice({
+      name: name,
+      price: price,
+      img: image,
+      collectionId: collection,
+      categoryId: category,
+    }).then((data) => {
+      setName(' ');
+      setPrice();
+      setImage();
+      setCategory();
+      setCollection();
+      setActive();
+    });
+  };
   return (
     <div
       ref={sortRef}
@@ -172,7 +207,9 @@ const CreateICartItemcopy = ({ active, setActive }) => {
               placeholder="description"
             />
           </div>
-          <button className="createItem__button">Create</button>
+          <button className="createItem__button" onClick={addDevice}>
+            Create
+          </button>
         </div>
       </div>
     </div>
