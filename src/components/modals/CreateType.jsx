@@ -27,7 +27,6 @@ const CreateType = ({ active, setActive }) => {
               className="inputblock__input"
               placeholder="name"
             />
-
             <div className="inputblock">
               <div className="inputblock__title">Input image for category</div>
               <input

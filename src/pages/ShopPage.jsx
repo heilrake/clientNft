@@ -3,13 +3,11 @@ import { observer } from 'mobx-react-lite';
 import { useNavigate } from 'react-router-dom';
 import { Context } from '..';
 import CartItem from '../components/CartItem';
-import Header from '../components/Header';
-import { fetchDevices, fetchOneDevice, fetchItems, fetchTypes } from '../htpp/itemAPI';
-import { CARTITEM_ROUTE } from '../untils/consts';
+
+import { fetchDevices } from '../htpp/itemAPI';
+
 const ShopPage = observer(() => {
   const { cartItem } = useContext(Context);
-
-  const navigate = useNavigate();
 
   useEffect(() => {
     fetchDevices().then((data) => cartItem.setCartItem(data));

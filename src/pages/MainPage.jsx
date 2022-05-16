@@ -1,13 +1,16 @@
-import React, { Component, useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import SelectCategory from '../components/SelectCategory';
 import Image from '../components/img/main.png';
 import CreateButton from '../components/button/CreateButton';
 import { observer } from 'mobx-react-lite';
+
+import { LOGIN_ROUTE } from '../untils/consts';
+import { useNavigate } from 'react-router-dom';
 import { Context } from '..';
 
 const MainPage = observer(() => {
-  const cartItem = useContext(Context);
-
+  const navigate = useNavigate();
+  const { user } = useContext(Context);
 
   return (
     <div className="wrapper">
@@ -24,9 +27,15 @@ const MainPage = observer(() => {
                 </div>
                 <div className="aboutit__buttons">
                   <CreateButton />
-                  <a href="#" className="connect-button">
-                    Connect
-                  </a>
+                  {!user.isAuth ? (
+                    <button
+                      onClick={() => navigate(LOGIN_ROUTE)}
+                      className="header__connect connect-button">
+                      Connect
+                    </button>
+                  ) : (
+                    ' '
+                  )}
                 </div>
               </div>
               <div className="information__image">

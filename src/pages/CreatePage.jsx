@@ -9,15 +9,16 @@ import { fetchCategory, fetchItems, fetchDevices, fetchCollection } from '../htp
 
 const CreatePage = observer(() => {
   const { cartItem } = useContext(Context);
+
   const [modalActiveСart, setModalActiveCart] = useState(false);
   const [modalActiveType, setModalActiveType] = useState(false);
   const [modalActiveCollection, setModalActiveCollection] = useState(false);
+
   useEffect(() => {
     fetchCategory().then((data) => cartItem.setCategories(data));
     fetchCollection().then((data) => cartItem.setCollections(data));
     fetchDevices().then((data) => cartItem.setCartItem(data));
-    // fetchItems().then((data) => cartItem.setCartItem(data));
-    //fetchItems().then((data) => cartItem.setCartItem(data));
+
   }, []);
   return (
     <div className="create">

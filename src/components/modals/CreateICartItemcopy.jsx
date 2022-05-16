@@ -4,15 +4,21 @@ import { Context } from '../..';
 import { createDevice } from '../../htpp/itemAPI';
 import '../style/createcartitem.scss';
 
+//!! TODO Collection Category!
+
 const CreateICartItemcopy = ({ active, setActive }) => {
   const { cartItem } = useContext(Context);
+  console.log(cartItem.categories);
 
   const [name, setName] = useState('');
   const [price, setPrice] = useState();
   const [image, setImage] = useState('');
-  const [collection, setCollection] = useState('second');
+  const [collection, setCollection] = useState('');
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
+
+  const [selectionCategory, setSelectionCategory] = useState([]);
+  const [selectionCollection, setSelectionCollection] = useState([]);
 
   useEffect(() => {
     createDevice().then((data) => cartItem.setCartItem(data));
@@ -31,22 +37,12 @@ const CreateICartItemcopy = ({ active, setActive }) => {
     setVisiblePopupCollection(!visiblePopupCollection);
   };
 
-  const [info, setInfo] = useState([]);
-  /*const addInfo = () => {
-    setInfo([...info, { title: '', description: '', number: Date.now() }]);
-  };*/
-
-  const [selectionCategory, setSelectionCategory] = useState([]);
-  const [selectionCollection, setSelectionCollection] = useState([]);
   /*const toggleVisiblePopupCategory = () => {
     setOpen(!open);
   };*/
 
   function handleOnClickCategory(item) {
-    console.log(cartItem.setSelectCategory(item));
-    console.log(item);
     if (!selectionCategory.some((current) => current === item)) {
-      // console.log(selectionCategory)
       //cartItem.setSelectionCategory()=selectionCategory;
       if (!multiSelect) {
         setSelectionCategory([item]);
@@ -62,6 +58,7 @@ const CreateICartItemcopy = ({ active, setActive }) => {
     setVisiblePopupCategory(false);
     // setVisiblePopupCollection(false);
   }
+
   function handleOnClickCollection(item) {
     //cartItem.setSelectCategory()=item;
     //item = cartItem.setSelectCategory();
@@ -84,40 +81,42 @@ const CreateICartItemcopy = ({ active, setActive }) => {
   /*const sortType = cartItem.types.map((item) => {
     return <span onClick={toggleVisiblePopupCategory}> {item.name}</span>;
   });*/
+
   const isItemInSelection = (item) => {
     if (selectionCategory.some((current) => current.id === item.id)) {
       return true;
     }
     return false;
   };
-  cartItem.setSelectCollection(selectionCollection);
-  cartItem.setSelectCategory(selectionCategory);
-  /* const addDevice = () => {
+
+  console.log(selectionCollection);
+  const addDevice = () => {
     const formData = new FormData();
     formData.append('name', name);
     formData.append('price', `${price}`);
     formData.append('img', image);
-    formData.append('CollectionId', cartItem.selectedCollection.id);
-    formData.append('CategoryId', cartItem.selectedCategories.id);
+    formData.append('collectionId', selectionCollection);
+    formData.append('categoryId', selectionCategory);
     //formData.append('info', JSON.stringify(info));
     createDevice(formData).then((data) => setActive(false));
-  };*/
-  const addDevice = () => {
+  };
+  /*const addDevice = () => {
     createDevice({
       name: name,
       price: price,
       img: image,
-      collectionId: collection,
-      categoryId: category,
+      collectionId: selectionCollection,
+      categoryId: selectionCategory,
     }).then((data) => {
-      setName(' ');
-      setPrice();
-      setImage();
-      setCategory();
-      setCollection();
+      setName('');
+      setPrice('');
+      setImage('');
+      setCategory('');
+      setCollection('');
       setActive();
     });
-  };
+  };*/
+
   return (
     <div
       ref={sortRef}
@@ -135,10 +134,9 @@ const CreateICartItemcopy = ({ active, setActive }) => {
                 <ul className="categorypopup__list ">
                   {cartItem.categories &&
                     cartItem.categories.map((obj, index) => (
-                      //console.log(index),
                       <li
                         className="categorypopup__item"
-                        onClick={() => handleOnClickCategory(obj.name)}
+                        onClick={() => handleOnClickCategory(obj.id)}
                         key={`${obj.type}_${index}`}>
                         <span>{obj.name}</span>
                       </li>
@@ -154,10 +152,9 @@ const CreateICartItemcopy = ({ active, setActive }) => {
                 <ul className="categorypopup__list ">
                   {cartItem.collections &&
                     cartItem.collections.map((obj, index) => (
-                      //console.log(index),
                       <li
                         className="categorypopup__item"
-                        onClick={() => handleOnClickCollection(obj.name)}
+                        onClick={() => handleOnClickCollection(obj.id)}
                         key={`${obj.type}_${index}`}>
                         <span>{obj.name}</span>
                       </li>

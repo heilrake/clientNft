@@ -6,14 +6,14 @@ import { fetchOneDevice } from '../htpp/itemAPI';
 import { Context } from '..';
 const CartItemPage = () => {
   const cartItem = useContext(Context);
-  console.log(cartItem);
+
   const [item, setItem] = useState({ info: [] });
   const { id } = useParams();
 
   useEffect(() => {
     fetchOneDevice(id).then((data) => setItem(data));
   }, []);
-  console.log(item);
+
   return (
     <div className="cartItem">
       <div className="cartItem__container _container">

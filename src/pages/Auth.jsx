@@ -9,13 +9,15 @@ import { useNavigate } from 'react-router-dom';
 
 const Auth = observer(() => {
   const { user } = useContext(Context);
+  
   const navigate = useNavigate();
   const location = useLocation();
   const isLogin = location.pathname === LOGIN_ROUTE;
 
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-  console.log(setPassword);
+
+
   const click = async () => {
     try {
       let data;
