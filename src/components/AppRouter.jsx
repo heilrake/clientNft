@@ -8,13 +8,10 @@ import { observer } from 'mobx-react-lite';
 import { authRoutes, publicRoutes } from '../routes';
 import { SHOPPAGE_ROUTE } from '../untils/consts';
 import { check } from '../htpp/userAPI';
-import LoaderSpinner from './LoaderSpinner';
 
 const AppRouter = observer(() => {
   const { user } = useContext(Context);
 
-  console.log(user);
-  console.log(Context);
   return (
     <Routes>
       {user.isAuth &&

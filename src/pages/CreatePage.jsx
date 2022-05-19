@@ -18,7 +18,6 @@ const CreatePage = observer(() => {
     fetchCategory().then((data) => cartItem.setCategories(data));
     fetchCollection().then((data) => cartItem.setCollections(data));
     fetchDevices().then((data) => cartItem.setCartItem(data));
-
   }, []);
   return (
     <div className="create">
@@ -34,7 +33,6 @@ const CreatePage = observer(() => {
         </div>
       </div>
       <CreateCollection active={modalActiveCollection} setActive={setModalActiveCollection} />
-
       <CreateICartItemcopy active={modalActiveСart} setActive={setModalActiveCart} />
       <CreateType active={modalActiveType} setActive={setModalActiveType} />
     </div>

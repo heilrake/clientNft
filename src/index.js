@@ -2,13 +2,13 @@ import React, { createContext } from 'react';
 import ReactDOM from 'react-dom/client';
 import UserStore from './store/UserStore';
 import { BrowserRouter } from 'react-router-dom';
-import AppRouter from './components/AppRouter';
 import CartItemStore from './store/CartItemStore';
-import Header from './components/Header';
+
 import './components/style/null.scss';
 import './components/style/style.scss';
 import './components/style/category.scss';
 import App from './App';
+
 export const Context = createContext(null);
 console.log(process.env.REACT_APP_API_URL);
 //Контекст позволяет передавать данные через дерево компонентов без
@@ -24,11 +24,6 @@ root.render(
       }}>
       <App />
       {/*  <Header /><AppRouter />*/}
-    
     </Context.Provider>
   </BrowserRouter>,
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals

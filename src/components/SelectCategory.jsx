@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 
 import { Link } from 'react-router-dom';
 import { SHOPPAGE_ROUTE } from '../untils/consts';
@@ -14,7 +14,6 @@ const SelectCategory = observer(() => {
     fetchCollection().then((data) => cartItem.setCollections(data));
     fetchDevices().then((data) => cartItem.setCartItem(data));
   }, []);
-  console.log(cartItem);
 
   return (
     <div className="selectcategories">
@@ -32,7 +31,7 @@ const SelectCategory = observer(() => {
                 key={`${type}_${index}`}
                 category={type.name}
                 to={SHOPPAGE_ROUTE}
-                onClick={() => cartItem.setSelectCategory(type)}
+                onClick={() => cartItem.setSelectCategory(type.id)}
                 className="menu-selectcategories__body">
                 <img
                   src={type.image}

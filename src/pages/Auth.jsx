@@ -1,22 +1,20 @@
 import React, { Component, useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { LOGIN_ROUTE, MAINPAGE_ROUTE, REGISTATION_ROUTE } from '../untils/consts';
 import { useLocation } from 'react-router-dom'; // хук что бы знать где мы находимся
 import { login, registration } from '../htpp/userAPI';
 import { observer } from 'mobx-react-lite';
 import { Context } from '..';
-import { useNavigate } from 'react-router-dom';
 
 const Auth = observer(() => {
   const { user } = useContext(Context);
-  
+
   const navigate = useNavigate();
   const location = useLocation();
   const isLogin = location.pathname === LOGIN_ROUTE;
 
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-
 
   const click = async () => {
     try {

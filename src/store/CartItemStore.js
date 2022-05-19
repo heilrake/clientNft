@@ -2,12 +2,7 @@ import { makeAutoObservable } from 'mobx';
 
 export default class CartItemStore {
   constructor() {
-    this._categories = [
-      /* { id: 1, name: 'Art ' },
-      { id: 2, name: 'Sport ' },
-      { id: 3, name: 'Music ' },
-      { id: 4, name: 'Music ' },*/
-    ];
+    this._categories = [];
     this._collections = [];
 
     this._cartItem = [];
